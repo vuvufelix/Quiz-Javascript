@@ -132,7 +132,14 @@ progress {
 }
 
 /**/
+.certo {
+    background-color: var(--color-acertou);
+    color: #fff;
+    border: 3px solid var(--color-colum);
+}
 
-.tristeza {
-    display: none;
+.errado {
+    background-color: var(--color-errou);
+    color: #fff;
+    border: 3px solid var(--color-colum);
 }

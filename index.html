@@ -8,12 +8,41 @@
     <title>Quiz JavaScript</title>
 </head>
 <body>
-    <span class="sorriso">🙂</span>‍
-    <span class="nave">🚀</span>
-    <span class="terminou">👨‍🎓</span>
-    <span class="tristeza">😩</span>
-    <i class="fa-solid fa-check"></i>
-    <i class="fa-solid fa-xmark"></i>
+    <section id="container">
+        <h1>quiz javascript</h1>
+        <div id="quadro">
+            <p id="texto">O que é JavaScript?</p>
+        </div>
+        <div class="questoes">
+            <ul>
+                <li class="questao">Not a Null</li>
+                <li class="questao">Not a Null</li>
+                <li class="questao">Not a Null</li>
+                <li class="questao">Not a Null</li>
+            </ul>
+        </div>
+        <div id="submeter-status">
+           <div>
+                <i class="fa-solid fa-check"></i>
+                <span id="status">Correto</span>
+                <span class="sorriso">🙂</span>‍
+                <span class="tristeza">😩</span>
+           </div>
+           <button id="btn_proximo">próxima pergunta</button>
+           <div id="status-progresso">
+                <progress 
+                value="50" max="100" id="progresso"
+                ></progress>
+                <span class="terminou">👨‍🎓</span>
+           </div>
+        </div>
+    </section>
+    <!-- 
+    
+     <i class="fa-solid fa-xmark erro-icon"></i>
+     <span class="nave">🚀</span>
+
+    -->
     <script src="src/js/script.js"></script>
 </body>
 </html>

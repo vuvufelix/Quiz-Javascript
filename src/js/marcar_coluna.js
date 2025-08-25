@@ -45,60 +45,63 @@ export function resultado(cont) {
 }
 
 export default function marcar(cont) {
+    var v = false
     questao.forEach(coluna => {
         coluna.addEventListener("click", (evento) => {
-            //evento.currentTarget.classList.add("marcar")
-            som.play()
-            if(evento.currentTarget.innerText == banco_de_dados[cont].resposta) {
+            if(!v) {
+                som.play()
+                if(evento.currentTarget.innerText == banco_de_dados[cont].resposta) {
+    
+                    const obj = {
+                        pergunta: banco_de_dados[cont].pergunta,
+                        resposta: banco_de_dados[cont].resposta,
+                        status: "Você acertou esta pergunta"
+                    }
 
-                const obj = {
-                    pergunta: banco_de_dados[cont].pergunta,
-                    resposta: banco_de_dados[cont].resposta,
-                    status: "Você acertou esta pergunta"
+                    historico.push(obj)
+                    salvarStatus()
+                    
+                    evento.currentTarget.classList.remove("errado")
+                    evento.currentTarget.classList.add("certo")
+
+                    tristeza.style.display = "none"
+                    erros.style.display = "none"
+
+                    elemento_pai.style.display = "flex"
+                    elemento_pai.style.color = "#4be71c"
+                    status.textContent = "Correto!"
+                    status.style.display = "block"
+                    sorriso.style.display = "block"
+                    check.style.display = "block"
+
+                } else {
+
+                    const obj = {
+                        pergunta: banco_de_dados[cont].pergunta,
+                        resposta: evento.target.innerText,
+                        status: "Você errou esta pergunta"
+                    }
+
+                    historico.push(obj)
+                    salvarStatus()
+
+                    evento.currentTarget.classList.remove("certo")
+                    evento.currentTarget.classList.add("errado")
+
+                    sorriso.style.display = "none"
+                    check.style.display = "none"
+
+                    elemento_pai.style.display = "flex"
+                    elemento_pai.style.color = "#ff0000"
+                    status.textContent = "Errado!"
+                    status.style.display = "block"
+                    tristeza.style.display = "block"
+                    erros.style.display = "block"
                 }
-
-                historico.push(obj)
-                salvarStatus()
-                
-                evento.currentTarget.classList.remove("errado")
-                evento.currentTarget.classList.add("certo")
-
-                tristeza.style.display = "none"
-                erros.style.display = "none"
-
-                elemento_pai.style.display = "flex"
-                elemento_pai.style.color = "#4be71c"
-                status.textContent = "Correto!"
-                status.style.display = "block"
-                sorriso.style.display = "block"
-                check.style.display = "block"
-
-            } else {
-
-                const obj = {
-                    pergunta: banco_de_dados[cont].pergunta,
-                    resposta: evento.target.innerText,
-                    status: "Você errou esta pergunta"
-                }
-
-                historico.push(obj)
-                salvarStatus()
-
-                evento.currentTarget.classList.remove("certo")
-                evento.currentTarget.classList.add("errado")
-
-                sorriso.style.display = "none"
-                check.style.display = "none"
-
-                elemento_pai.style.display = "flex"
-                elemento_pai.style.color = "#ff0000"
-                status.textContent = "Errado!"
-                status.style.display = "block"
-                tristeza.style.display = "block"
-                erros.style.display = "block"
-            }
-            resultado(cont)
+                v=true
+                resultado(cont)
+           }
         })
-
     })
+    v = false
 }

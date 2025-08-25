@@ -15,6 +15,8 @@ const asseguir = () => {
 
 export let proximo = 0
 
+var v = false
+
 marcar(asseguir())
 
 texto.textContent = banco_de_dados[proximo].pergunta
@@ -85,8 +87,6 @@ btn_proximo.addEventListener("click", () => {
     }
 
 })
-
-//let bb = JSON.parse(localStorage.getItem("status"))
 
 window.addEventListener("load", () => {
     localStorage.removeItem("status")

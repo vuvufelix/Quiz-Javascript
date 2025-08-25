@@ -15,7 +15,7 @@ const asseguir = () => {
 
 export let proximo = 0
 
-var v = false
+export var z = false
 
 marcar(asseguir())
 
@@ -32,8 +32,10 @@ btn_iniciar.addEventListener("click", () => {
 
 let largura_da_barra = 0 
 
+var vuvu = 0
+
 btn_proximo.addEventListener("click", () => {
-    
+
     largura_da_barra += 5.88
 
     if(proximo <= 17) {
@@ -49,11 +51,12 @@ btn_proximo.addEventListener("click", () => {
 
         const btn_historico = document.querySelector("#btn_historico")
         const btn_novo_jogo = document.querySelector("#btn_novo_jogo")
-
+        
         btn_historico.addEventListener("click", () => {
             conclusao_container.style.display = "none"
             const historico_container = document.querySelector(".historico_container")
-            historico_container.style.display = "flex"
+            const wwwww = document.querySelector(".wwwww")
+            wwwww.style.display = "flex"
 
             let bb = JSON.parse(localStorage.getItem("status"))
             //
@@ -64,18 +67,32 @@ btn_proximo.addEventListener("click", () => {
            })
 
             unicos.forEach(historico => {
+
+                if(historico.status == "Você acertou esta pergunta") {
+                    vuvu += 5.6
+                }
+
                 const p = document.createElement("p")
                 let html = `
                     <p> <strong>Pergunta:</strong> ${historico.pergunta}</p>
                     <p> <strong>Resposta:</strong> ${historico.resposta}</p>
-                    <p> <strong>Resultado:</strong> ${historico.status}</p>
+                    <p> <strong style="color: ${historico.status == "Você acertou esta pergunta"? "#4be71c":"#ff0000"};">Resultado:</strong> ${historico.status}</p>
                 `
                 p.innerHTML = html
-                historico_container.prepend(p)
+                historico_container.appendChild(p)
+
             })
 
-            const btn_historico_jogar_novamente = document.querySelector("#btn_historico_jogar_novamente")
+            const mm = document.querySelector(".mm")
+            const span = document.createElement("span")
+            span.style.color = `${Math.floor(vuvu) >= 50 ? "#4be71c":"#ff0000"}`
+            span.textContent = `Sua Avaliação: ${Math.floor(vuvu)}% de 100%`
+                
+            mm.appendChild(span)
 
+            
+            const btn_historico_jogar_novamente = document.querySelector("#btn_historico_jogar_novamente")
+            
             btn_historico_jogar_novamente.addEventListener("click", () => {
                 window.location.reload()
             })
@@ -85,7 +102,7 @@ btn_proximo.addEventListener("click", () => {
             window.location.reload()
         })
     }
-
+    
 })
 
 window.addEventListener("load", () => {

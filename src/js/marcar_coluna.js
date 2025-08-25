@@ -39,7 +39,7 @@ export function resultado(cont) {
             }
         })
         som_2.play()
-    }, 2000)
+    }, 400)
 
     return resultado_em_segundo
 }
@@ -51,7 +51,7 @@ export default function marcar(cont) {
             if(!v) {
                 som.play()
                 if(evento.currentTarget.innerText == banco_de_dados[cont].resposta) {
-    
+
                     const obj = {
                         pergunta: banco_de_dados[cont].pergunta,
                         resposta: banco_de_dados[cont].resposta,
@@ -101,6 +101,7 @@ export default function marcar(cont) {
                 v=true
                 resultado(cont)
            }
+           v = true
         })
     })
     v = false

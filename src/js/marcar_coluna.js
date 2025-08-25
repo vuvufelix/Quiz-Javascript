@@ -17,6 +17,13 @@ erros.style.display = "none"
 elemento_pai.style.display = "none"
 
 let som = new Audio("/src/audio/zapsplat_multimedia_game_sound_simple_ping_short_114672.mp3")
+let som_2 = new Audio("src/audio/zapsplat_multimedia_game_sound_simple_ping_chime_114671.mp3")
+
+let historico = []
+
+function salvarStatus() {
+    localStorage.setItem("status", JSON.stringify(historico))
+}
 
 export function resultado(cont) {
     let resultado_em_segundo = setTimeout(() => {
@@ -31,7 +38,7 @@ export function resultado(cont) {
                 coluna.classList.add("errado")
             }
         })
-        som.play()
+        som_2.play()
     }, 2000)
 
     return resultado_em_segundo
@@ -43,6 +50,16 @@ export default function marcar(cont) {
             //evento.currentTarget.classList.add("marcar")
             som.play()
             if(evento.currentTarget.innerText == banco_de_dados[cont].resposta) {
+
+                const obj = {
+                    pergunta: banco_de_dados[cont].pergunta,
+                    resposta: banco_de_dados[cont].resposta,
+                    status: "Você acertou esta pergunta"
+                }
+
+                historico.push(obj)
+                salvarStatus()
+                
                 evento.currentTarget.classList.remove("errado")
                 evento.currentTarget.classList.add("certo")
 
@@ -57,6 +74,16 @@ export default function marcar(cont) {
                 check.style.display = "block"
 
             } else {
+
+                const obj = {
+                    pergunta: banco_de_dados[cont].pergunta,
+                    resposta: evento.target.innerText,
+                    status: "Você errou esta pergunta"
+                }
+
+                historico.push(obj)
+                salvarStatus()
+
                 evento.currentTarget.classList.remove("certo")
                 evento.currentTarget.classList.add("errado")
 

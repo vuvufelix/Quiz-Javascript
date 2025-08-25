@@ -1,0 +1,101 @@
+:root {
+    --quadro-font: "Abel", sans-serif;
+    --font-padrao: "Open Sans", sans-serif;
+    --color-default: #5a56c5;
+    --color-acertou: #4be71c;
+    --color-errou: #ff0000;
+    --color-quadro: #0c4e0c;
+    --color-quadro-border: #c48a3f;
+    --color-colum: #e7e7e7;
+}
+
+.conclusao_container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.637);
+    display: none;
+}
+
+.conclusao_container > div {
+    background-color: var(--color-quadro);
+    padding: 1rem;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.conclusao_container > div > p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.conclusao_container > div > button {
+    margin-top: 10px;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #5a56c5;
+    color: #fff;
+    transition: .3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.603);
+}
+
+.conclusao_container > div > button:hover {
+    background-color: #403cb9;
+    color: #e6dddd;
+}
+
+.historico_container {
+    position: absolute;
+    background-color: #c48a3f;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    padding: 1.5rem;
+    color: #fff;
+    z-index: 222;
+    display: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.historico_container > p {
+    background-color: #5a56c557;
+    width: 40%;
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #0c4e0c;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.411);
+    margin: 10px;
+}
+
+#btn_historico_jogar_novamente {
+    margin-top: 10px;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #5a56c5;
+    color: #fff;
+    transition: .3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.603);
+}
+
+#btn_historico_jogar_novamente:hover {
+    background-color: #403cb9;
+    color: #e6dddd;
+}

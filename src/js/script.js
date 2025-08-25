@@ -7,6 +7,7 @@ import removerClasse from "./verificar_coluna.js";
 const texto = document.querySelector("#texto")
 const btn_proximo = document.querySelector("#btn_proximo")
 const progresso = document.querySelector("#progresso")
+const btn_iniciar = document.querySelector("#btn_iniciar")
 
 const asseguir = () => {
     return ++proximo
@@ -22,19 +23,71 @@ questao[1].textContent = banco_de_dados[proximo].opcoes[1]
 questao[2].textContent = banco_de_dados[proximo].opcoes[2]
 questao[3].textContent = banco_de_dados[proximo].opcoes[3]
 
+btn_iniciar.addEventListener("click", () => {
+    let mensagem = document.querySelector("#mensagem")
+    mensagem.style.display = "none"
+})
+
+let largura_da_barra = 0 
+
 btn_proximo.addEventListener("click", () => {
+    
+    largura_da_barra += 5.88
 
     if(proximo <= 17) {
-        progresso.setAttribute("value", proximo)
+        progresso.style.width = `${largura_da_barra}%`
         asseguir()
         texto.textContent = banco_de_dados[proximo].pergunta
         exibir_colunas(proximo)
         marcar(proximo)
         removerClasse()
     } else {
-        alert("Parabéns você terminou o Quiz")
+        const conclusao_container = document.querySelector(".conclusao_container")
+        conclusao_container.style.display = "flex"
+
+        const btn_historico = document.querySelector("#btn_historico")
+        const btn_novo_jogo = document.querySelector("#btn_novo_jogo")
+
+        btn_historico.addEventListener("click", () => {
+            conclusao_container.style.display = "none"
+            const historico_container = document.querySelector(".historico_container")
+            historico_container.style.display = "flex"
+
+            let bb = JSON.parse(localStorage.getItem("status"))
+            //
+           const unicos = bb.filter((obj, index, self) => {
+                return index === self.findIndex((t) => {
+                    return t.pergunta === obj.pergunta
+                })
+           })
+
+            unicos.forEach(historico => {
+                const p = document.createElement("p")
+                let html = `
+                    <p> <strong>Pergunta:</strong> ${historico.pergunta}</p>
+                    <p> <strong>Resposta:</strong> ${historico.resposta}</p>
+                    <p> <strong>Resultado:</strong> ${historico.status}</p>
+                `
+                p.innerHTML = html
+                historico_container.prepend(p)
+            })
+
+            const btn_historico_jogar_novamente = document.querySelector("#btn_historico_jogar_novamente")
+
+            btn_historico_jogar_novamente.addEventListener("click", () => {
+                window.location.reload()
+            })
+        })
+
+        btn_novo_jogo.addEventListener("click", () => {
+            window.location.reload()
+        })
     }
 
 })
 
-//console.log(banco_de_dados)
+//let bb = JSON.parse(localStorage.getItem("status"))
+
+window.addEventListener("load", () => {
+    localStorage.removeItem("status")
+})

@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="src/css/conclusao_container.css">
+    <link rel="stylesheet" href="src/css/welcome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Quiz JavaScript</title>
 </head>
@@ -22,7 +24,7 @@
             </ul>
         </div>
         <div id="submeter-status">
-           <div>
+           <div class="outro">
                 <i class="fa-solid fa-check"></i>
                 <i class="fa-solid fa-xmark erro-icon"></i>
                 <span id="status">Correto</span>
@@ -31,18 +33,34 @@
            </div>
            <button id="btn_proximo">próxima pergunta</button>
            <div id="status-progresso">
-                <progress 
-                value="0" max="17" id="progresso"
-                ></progress>
+                <div id="progresso"></div>
                 <span class="terminou">👨‍🎓</span>
            </div>
         </div>
     </section>
-    <!-- 
-    
-     <span class="nave">🚀</span>
 
-    -->
+    <div id="mensagem">
+        <div class="mensagem_container">
+            <h2>bem-vindo ao quiz javascript!</h2>
+            <img src="src/img/file_00000000b2d861fa9cd5eea0da9a926f_1.png" alt="imagem de boas vindas">
+            <p>Prepara-se para testar seus conhecimentos e se divertir aprendendo <span class="nave">🚀</span></p>
+            <button id="btn_iniciar">Iniciar Quiz</button>
+        </div>
+    </div>
+
+    <div class="conclusao_container">
+        <div>
+            <p>icon</p>
+            <p>"Parabéns você terminou o Quiz"</p>
+            <button id="btn_historico">Ver histórico das respostas</button>
+            <button id="btn_novo_jogo">Jogar novamente</button>
+        </div>
+    </div>
+
+    <div class="historico_container">
+        <button id="btn_historico_jogar_novamente">Jogar Novamente</button>
+    </div>
+
     <script src="src/js/script.js" type="module"></script>
 </body>
 </html>

@@ -25,7 +25,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--color-default);
+    background: linear-gradient(135deg, #6a11cb 30%, #2575fc);
+    position: relative;
 }
 
 #container {
@@ -34,7 +35,8 @@ body {
     width: 96%;
     max-width: 600px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.534);
+    box-shadow: 0 8px 20px rgb(0, 0, 0, 0.2);
+    animation: fadeIn 0.6s ease-in-out;
 }
 
 #container > h1{
@@ -73,10 +75,10 @@ ul > li {
     margin: 5px 0;
     padding: 10px;
     border-radius: 10px;
-    border: 3px solid var(--color-acertou);
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
+    transition: all 0.3s ease;
 } 
 
 #submeter-status {
@@ -84,20 +86,6 @@ ul > li {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-#submeter-status > div {
-    display: flex;
-    height: 2rem;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-    color: var(--color-acertou);
-    font-size: 1.5rem;
-    padding: 10px;
-    font-weight: bold;
 }
 
 #submeter-status .status {
@@ -116,19 +104,62 @@ ul > li {
     cursor: pointer;
     font-variant: small-caps;
     margin-bottom: 10px;
+    transition: .3s;
+}
+
+#submeter-status > button:hover {
+    background-color: #40c244;
+    color: #d6d4d4;
+}
+
+#submeter-status > .outro {
+    display: flex;
+    height: 2rem;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: var(--color-acertou);
+    font-size: 1.5rem;
+    padding: 10px;
+    font-weight: bold;
 }
  
 #submeter-status #status-progresso {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-progress {
-    flex-grow: 1;
-    border: 2px solid var(--color-default);
+    height: 17px;
+    background: #eee;
     border-radius: 10px;
     overflow: hidden;
+    width: 100%;
+    margin-bottom: 0.8rem;
+    position: relative;
+}
+
+#submeter-status > #status-progresso > #progresso {
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s ease-in-out;
+    background: linear-gradient(to right, #4CAF50, #00c6ff);
+}
+
+#submeter-status > #status-progresso .terminou {
+    position: absolute;
+    z-index: 2;
+    font-size: 1rem;
+    right: 4px;
+    bottom: -1px;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /**/

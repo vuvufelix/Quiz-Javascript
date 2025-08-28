@@ -74,8 +74,8 @@ btn_proximo.addEventListener("click", () => {
 
                 const p = document.createElement("p")
                 let html = `
-                    <p> <strong>Pergunta:</strong> ${historico.pergunta}</p>
-                    <p> <strong>Resposta:</strong> ${historico.resposta}</p>
+                    <p> <strong style="color:#302e2e">Pergunta:</strong> ${historico.pergunta}</p>
+                    <p> <strong style="color: #ffff00">Sua resposta:</strong> ${historico.resposta}</p>
                     <p> <strong style="color: ${historico.status == "Você acertou esta pergunta"? "#4be71c":"#ff0000"};">Resultado:</strong> ${historico.status}</p>
                 `
                 p.innerHTML = html

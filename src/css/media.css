@@ -1,0 +1,81 @@
+@media screen and (max-width: 583px) {
+
+    .wwwww {
+        padding: 0.5rem;
+    }
+
+    .historico_container {
+        flex-direction: column;
+    }
+
+    .historico_container > p {
+        width: 100%;
+        margin: 10px 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .mm {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin: 0.5rem 0;
+        font-size: 1.1rem;
+    }
+
+    #btn_historico_jogar_novamente {
+        border-radius: 5px;
+        width: 100%;
+        order: 2;
+    }
+}
+
+@media screen and (max-width: 414px) {
+
+    #container {
+        padding: 0 1rem;
+    }
+
+    #container > h1 {
+        font-size: 1.3rem;
+    }
+
+    #quadro {
+        border-radius: 7px;
+        border: 3px solid var(--color-quadro-border);
+        padding: 0.7rem;
+    }
+
+    ul > li {
+        font-size: 0.8rem;
+        border-radius: 5px;
+    }
+
+    #submeter-status > button {
+        border-radius: 5px;
+        font-size: 0.8rem;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    #mensagem .mensagem_container h2 {
+        font-size: 1.7rem;
+    }
+
+    #mensagem .mensagem_container p {
+        font-size: 1.2rem;
+    }
+
+    #mensagem .mensagem_container img {
+        width: 14rem;
+    }
+
+    #mensagem .mensagem_container button {
+        padding: 0.7rem;
+        width: 12rem;
+        font-size: 1.1rem;
+    }
+}

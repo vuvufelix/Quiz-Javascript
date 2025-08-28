@@ -32,7 +32,7 @@ btn_iniciar.addEventListener("click", () => {
 
 let largura_da_barra = 0 
 
-var vuvu = 0
+var valor_do_teste = 0
 
 btn_proximo.addEventListener("click", () => {
 
@@ -69,7 +69,7 @@ btn_proximo.addEventListener("click", () => {
             unicos.forEach(historico => {
 
                 if(historico.status == "Você acertou esta pergunta") {
-                    vuvu += 5.6
+                    valor_do_teste += 5.6
                 }
 
                 const p = document.createElement("p")
@@ -85,8 +85,8 @@ btn_proximo.addEventListener("click", () => {
 
             const mm = document.querySelector(".mm")
             const span = document.createElement("span")
-            span.style.color = `${Math.floor(vuvu) >= 50 ? "#4be71c":"#ff0000"}`
-            span.textContent = `Sua Avaliação: ${Math.floor(vuvu)}% de 100%`
+            span.style.color = `${Math.floor(valor_do_teste) >= 50 ? "#4be71c":"#ff0000"}`
+            span.textContent = `Sua Avaliação: ${Math.floor(valor_do_teste)}% de 100%`
                 
             mm.appendChild(span)
 

@@ -31,7 +31,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 10px;
+    border-radius: 0.65rem;
     border: 2px solid #5a56c5;
 }
 
@@ -42,9 +42,9 @@
 }
 
 .conclusao_container > div > button {
-    margin-top: 10px;
+    margin-top: 0.65rem;
     padding: 0.5rem 1rem;
-    border-radius: 10px;
+    border-radius: 0.65rem;
     border: none;
     cursor: pointer;
     background-color: #5a56c5;
@@ -94,17 +94,17 @@
 .historico_container > p {
     background-color: #5a56c557;
     width: 40%;
-    padding: 10px;
+    padding: 0.65rem;
     border-radius: 12px;
     border: 2px solid #0c4e0c;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.411);
-    margin: 10px;
+    margin: 0.65rem;
 }
 
 #btn_historico_jogar_novamente {
-    margin-top: 10px;
+    margin-top: 0.65rem;
     padding: 0.5rem 1rem;
-    border-radius: 10px;
+    border-radius: 0.65rem;
     border: none;
     cursor: pointer;
     background-color: #5a56c5;

@@ -25,7 +25,6 @@
 .conclusao_container > div {
     background-color: var(--color-quadro);
     padding: 1rem;
-    height: 200px;
     width: 93%;
     max-width: 25rem;
     display: flex;
@@ -33,7 +32,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    border: 2px solid black;
+    border: 2px solid #5a56c5;
 }
 
 .conclusao_container > div > p {
@@ -57,6 +56,14 @@
 .conclusao_container > div > button:hover {
     background-color: #403cb9;
     color: #e6dddd;
+}
+
+#parabens {
+    width: 8rem;
+}
+
+#parabens > img {
+    width: 100%;
 }
 
 .wwwww {

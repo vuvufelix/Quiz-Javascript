@@ -9,6 +9,9 @@ const btn_proximo = document.querySelector("#btn_proximo")
 const progresso = document.querySelector("#progresso")
 const btn_iniciar = document.querySelector("#btn_iniciar")
 
+let som = new Audio("/src/audio/som button.mp3")
+let som_2 = new Audio("src/audio/congratis.mp3")
+
 const asseguir = () => {
     return ++proximo
 }
@@ -26,6 +29,7 @@ questao[2].textContent = banco_de_dados[proximo].opcoes[2]
 questao[3].textContent = banco_de_dados[proximo].opcoes[3]
 
 btn_iniciar.addEventListener("click", () => {
+    som.play()
     let mensagem = document.querySelector("#mensagem")
     mensagem.style.display = "none"
 })
@@ -36,6 +40,7 @@ var valor_do_teste = 0
 
 btn_proximo.addEventListener("click", () => {
 
+    som.play()
     largura_da_barra += 5.88
 
     if(proximo <= 17) {
@@ -46,6 +51,7 @@ btn_proximo.addEventListener("click", () => {
         marcar(proximo)
         removerClasse()
     } else {
+        som_2.play()
         const conclusao_container = document.querySelector(".conclusao_container")
         conclusao_container.style.display = "flex"
 
@@ -89,7 +95,6 @@ btn_proximo.addEventListener("click", () => {
             span.textContent = `Sua Avaliação: ${Math.floor(valor_do_teste)}% de 100%`
                 
             mm.appendChild(span)
-
             
             const btn_historico_jogar_novamente = document.querySelector("#btn_historico_jogar_novamente")
             

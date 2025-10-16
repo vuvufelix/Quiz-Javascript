@@ -86,7 +86,7 @@ btn_proximo.addEventListener("click", () => {
                 `
                 p.innerHTML = html
                 historico_container.appendChild(p)
-
+ 
             })
 
             const mm = document.querySelector(".mm")
